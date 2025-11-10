@@ -9,6 +9,7 @@ public class CapsuleControler : MonoBehaviour
     private InputAction yAxis;
     private InputAction xAxis;
 
+    private bool interactIsPressed = false;
 
     void Awake()
     {
@@ -19,11 +20,15 @@ public class CapsuleControler : MonoBehaviour
     void OnEnable()
     {
         actions.FindActionMap("Jack").Enable();
+        //// Avant de faire les lignes de code Interact, il faut configurer l'InputActionAsset.
+        // actions.FindActionMap("Jack").FindAction("Interact").performed += OnInteractPressed; 
     }
 
     void OnDisable()
     {
         actions.FindActionMap("Jack").Disable();
+        // actions.FindActionMap("Jack").FindAction("Interact").performed -= OnInteractPressed;
+
     }
 
     void Update()
@@ -41,4 +46,10 @@ public class CapsuleControler : MonoBehaviour
         transform.Translate(0f, yAxis.ReadValue<float>() * speed * Time.deltaTime, 0f);
     }
 
+    public bool OnInteractPressed()
+    {
+        bool result = interactIsPressed;
+        interactIsPressed = false;
+        return result;
+    }
 }

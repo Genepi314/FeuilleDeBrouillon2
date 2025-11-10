@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80b89e89d70efb43a5e5661a07f07cc, type: 3}
   m_Name: Intro
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  Text: 
-  next: {fileID: 0}
+  texts: []
+  <Next>k__BackingField: {fileID: 0}
